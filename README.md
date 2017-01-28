@@ -5,6 +5,11 @@ Metric service client library.
 
 ##Usage
 
+Add the following library to the dependencies of your package and then run `npm install`.
+```
+"metricsclient": "git+ssh://git@git.hch.im:service-infrastructure/metricserviceclient.git"
+```
+
 ###Count metric:
 
 ```
