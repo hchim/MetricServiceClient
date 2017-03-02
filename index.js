@@ -14,7 +14,12 @@ module.exports = {
             hostname: os.hostname()
         };
 
-        request.post({url: endpoint, form: formData}, function (err, res, body){
+        request.post({
+            url: endpoint, form: formData,
+            headers: {
+                'is-internal-request': 'YES'
+            }
+        }, function (err, res, body){
             if (err) {
                 return callback(err, null);
             }
@@ -34,7 +39,12 @@ module.exports = {
             error: err,
             hostname: os.hostname()
         };
-        request.post({url: endpoint, form: formData}, function (err, res, body){
+        request.post({
+            url: endpoint, form: formData,
+            headers: {
+                'is-internal-request': 'YES'
+            }
+        }, function (err, res, body){
             if (err) {
                 return call(err, null);
             }
@@ -54,7 +64,12 @@ module.exports = {
             error: msg,
             hostname: os.hostname()
         };
-        request.post({url: endpoint, form: formData}, function (err, res, body){
+        request.post({
+            url: endpoint, form: formData,
+            headers: {
+                'is-internal-request': 'YES'
+            }
+        }, function (err, res, body){
             if (err) {
                 return callback(err, null);
             }
@@ -75,7 +90,12 @@ module.exports = {
             hostname: os.hostname()
         };
         console.log(formData)
-        request.post({url: endpoint, form: formData}, function (err, res, body){
+        request.post({
+            url: endpoint, form: formData,
+            headers: {
+                'is-internal-request': 'YES'
+            }
+        }, function (err, res, body){
             if (err) {
                 return callback(err, null);
             }
