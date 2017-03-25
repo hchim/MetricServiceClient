@@ -16,11 +16,18 @@ var increaseCounter =  function(tag, callback) {
         }
     }, function (err, res, body){
         if (err) {
-            return callback(err, null);
+            if (callback) {
+                callback(err, null)
+            }
+
+            return;
         }
 
         var json = JSON.parse(body);
-        callback(null, json);
+
+        if (callback) {
+            callback(null, json)
+        }
     });
 }
 
@@ -42,11 +49,16 @@ var errorMetric = function(tag, err, callback) {
         }
     }, function (err, res, body){
         if (err) {
-            return call(err, null);
+            if (callback) {
+                callback(err, null)
+            }
+            return;
         }
 
         var json = JSON.parse(body);
-        callback(null, json);
+        if (callback) {
+            callback(null, json);
+        }
     });
 }
 
@@ -68,11 +80,16 @@ var messageMetric = function(tag, msg, callback) {
         }
     }, function (err, res, body){
         if (err) {
-            return callback(err, null);
+            if (callback) {
+                callback(err, null)
+            }
+            return;
         }
 
         var json = JSON.parse(body);
-        callback(null, json);
+        if (callback) {
+            callback(null, json);
+        }
     });
 }
 
@@ -96,11 +113,16 @@ var stopTimeMetric = function (tag, callback) {
         }
     }, function (err, res, body){
         if (err) {
-            return callback(err, null);
+            if (callback) {
+                callback(err, null)
+            }
+            return;
         }
 
         var json = JSON.parse(body);
-        callback(null, json);
+        if (callback) {
+            callback(null, json);
+        }
     });
 }
 
