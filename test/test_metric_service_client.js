@@ -3,7 +3,16 @@
  */
 var assert = require('assert');
 var expect = require('Chai').expect;
-var metricsclient = require('../index');
+
+var conf = {
+    get: function (key) {
+        if (key == 'endpoint') {
+            return "http://localhost:3112"
+        }
+    }
+}
+
+var metricsclient = require('../index')(conf);
 
 describe('metrics functions', function () {
     describe('increaseCounter', function () {
