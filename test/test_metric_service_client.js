@@ -6,7 +6,7 @@ var expect = require('Chai').expect;
 
 var conf = {
     get: function (key) {
-        if (key == 'endpoint') {
+        if (key == 'endpoint.metricservice') {
             return "http://localhost:3112"
         }
     }

@@ -104,8 +104,13 @@ var stopTimeMetric = function (tag, callback) {
     });
 }
 
+/**
+ * Create metric client.
+ * @param config
+ * @returns {module}
+ */
 module.exports = function (config) {
-    this.endpoint = config.get("endpoint") + '/metrics';
+    this.endpoint = config.get("endpoint.metricservice") + '/metrics';
     this.tag_map = {}
 
     this.increaseCounter = increaseCounter;
