@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.hch.im:service-infrastructure/metricserviceclient.git"
+    "url": "git@git.sleepaiden.com:service-infrastructure/metricserviceclient.git"
   },
   "keywords": [
     "metric"
