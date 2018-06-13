@@ -1,20 +1,26 @@
-/**
- * Created by huiche on 1/27/17.
- */
-import MetricServiceClient from '../MetricServiceClient';
+'use strict';
 
-const assert = require('assert');
-const expect = require('Chai').expect;
+var _MetricServiceClient = require('../MetricServiceClient');
 
-const conf = {
-    get: function (key) {
+var _MetricServiceClient2 = _interopRequireDefault(_MetricServiceClient);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var assert = require('assert'); /**
+                                 * Created by huiche on 1/27/17.
+                                 */
+
+var expect = require('Chai').expect;
+
+var conf = {
+    get: function get(key) {
         if (key === 'endpoint.metricservice') {
-            return "http://localhost:3012"
+            return "http://localhost:3012";
         }
     }
 };
 
-const metricsclient = new MetricServiceClient(conf);
+var metricsclient = new _MetricServiceClient2.default(conf);
 
 describe('metrics functions', function () {
     describe('increaseCounter', function () {
@@ -22,14 +28,14 @@ describe('metrics functions', function () {
             metricsclient.increaseCounter('Test:CountMetric', function (err, json) {
                 if (err) done(err);
                 expect(json).to.include.keys('_id');
-                done()
-            })
-        })
+                done();
+            });
+        });
     });
 
     describe('errorMetric', function () {
         it('should add error metric', function (done) {
-            const err = {
+            var err = {
                 errCode: "Error code",
                 message: "error message"
             };
@@ -37,36 +43,36 @@ describe('metrics functions', function () {
             metricsclient.errorMetric('Test:ErrorMetric', err, function (err, json) {
                 if (err) done(err);
                 expect(json).to.include.keys('_id');
-                done()
-            })
-        })
+                done();
+            });
+        });
     });
 
     describe('messageMetric', function () {
         it('should add message metric', function (done) {
-            const msg = {
+            var msg = {
                 message: "error message"
             };
 
             metricsclient.messageMetric('Test:MsgMetric', msg, function (err, json) {
                 if (err) done(err);
                 expect(json).to.include.keys('_id');
-                done()
-            })
-        })
+                done();
+            });
+        });
     });
 
     describe('time Metric', function () {
         it('should add metric metric', function (done) {
-            const tag = "Test:TimeMetric";
+            var tag = "Test:TimeMetric";
             metricsclient.startTimeMetric(tag);
             setTimeout(function () {
                 metricsclient.stopTimeMetric(tag, function (err, json) {
                     if (err) done(err);
                     expect(json).to.include.keys('_id');
-                    done()
-                })
+                    done();
+                });
             }, 50);
-        })
-    })
+        });
+    });
 });
